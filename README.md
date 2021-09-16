@@ -1,8 +1,8 @@
 # Tech-Blog
 
-Description
+## Description
+This application uses Node.js, Sequelize, Express, and Handlebars. The purpose of this application is to store comments, posts, and users data. Also allowing users to interact with posts and read other comments that other users have posted with delete and add functionality.
 
-This blog was created to utilize MVC methodology and to practice creating a full stack application; using sequalize, node.js, handlebars, and more.
 
 
 ## Table of Contents
