@@ -1,5 +1,8 @@
 # Tech-Blog
 
+<img width="1351" alt="Screen Shot 2021-09-19 at 2 22 32 PM" src="https://user-images.githubusercontent.com/87398458/133941910-07900fdc-5d02-463c-b0e8-6b2eafaeb6a9.png">
+
+
 ## Description
 This application uses Node.js, Sequelize, Express, and Handlebars. The purpose of this application is to store comments, posts, and users data. Also allowing users to interact with posts and read other comments that other users have posted with delete and add functionality.
 
