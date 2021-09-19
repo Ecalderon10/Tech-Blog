@@ -1,7 +1,13 @@
 const router = require('express'). Router();
-const sequelize = require("../config/connection");
-const {Post, User, Comment} = require ('../models');
-const authorize = require('../utils/authentication');
+const apiRoutes = require("./api");
+const homeRoutes = require("./home-routes");
+const dashBoardRoutes = require ("./dashboard-routes");
 
 
+
+router.use("/", homeRoutes);
+router.use("/api", apiRoutes);
+router.use("/dashboard", dashBoardRoutes);
+
+module.exports = router;
 

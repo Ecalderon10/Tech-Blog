@@ -5,12 +5,12 @@ const Comment = require('./comment');
 //Associations 
 
 //User Associations
-User.hasmany(Post,{
+User.hasMany(Post,{
     foriegnKey:"userId",
 });
 
 
-User.hasmany(Comment,{
+User.hasMany(Comment,{
     foriegnKey:"userId",
     onDelete:"Cascade"
 });
@@ -23,7 +23,7 @@ foriegnKey:"userId",
 onDelete:"Cascade",
 });
 
-Post.hasmany(Comment,{
+Post.hasMany(Comment,{
     foriegnKey:"postId",
     onDelete:"Cascade"
 });
