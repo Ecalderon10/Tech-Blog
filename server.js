@@ -8,7 +8,8 @@ const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3006;
-const hbs = exphbs.create({});
+const helpers = require ('./utils/helper')
+const hbs = exphbs.create({helpers});
 
 
 const sesh = {
@@ -17,7 +18,7 @@ const sesh = {
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
-    db: sequelize,
+  db: sequelize,
   }),
 };
 
@@ -38,6 +39,6 @@ console.log(
 );
 
 
-sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log(`Now listening on port: ${PORT}`));
+sequelize.sync({ force: true }).then(() => {
+  app.listen(PORT, () => console.log(`Now listening on port: http://localhost:${PORT}`));
 });

@@ -14,7 +14,7 @@ router.get('/', async (req,res) => {
     });
 
     const blogPost = postData.map((post) => post.get({ plain: true}));
-    res.render("homepage", {
+    res.render("home-page", {
     blogPost,
     loggedIn: req.session.loggedIn,
     });
@@ -26,6 +26,7 @@ router.get('/', async (req,res) => {
 
 
 router.get('/login', async (req,res) => {
+// console.log(req.session.loggedIn)
 if(req.session.loggedIn){
 res.redirect('/');
 return;

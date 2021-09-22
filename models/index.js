@@ -5,15 +5,16 @@ const Comment = require('./comment');
 //Associations 
 
 //User Associations
-User.hasMany(Post,{
-    foriegnKey:"userId",
-});
+//redunt with line 27
+// User.hasMany(Post,{
+//     foriegnKey:"userId",
+// });
 
-
-User.hasMany(Comment,{
-    foriegnKey:"userId",
-    onDelete:"Cascade"
-});
+//redudent to line 22
+// User.hasMany(Comment,{
+//     foriegnKey:"userId",
+//     onDelete:"Cascade"
+// });
 
 
 //Post Associations
@@ -35,10 +36,6 @@ Comment.belongsTo(User,{
     onDelete:"CASCADE",
 });
 
-Comment.belongsTo(Post,{
-foriegnKey:"postId",
-onDelete:"Cascade"
-});
 
 
 module.exports = {User, Post, Comment};

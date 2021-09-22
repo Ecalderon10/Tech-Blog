@@ -5,15 +5,15 @@ event.preventDefault();
 
 
 
-const username = documnet.querySelector("#username-signup").value.trim();
-const pasword = document.querySelector('#password-signup').value.trim();
+const username = documnet.querySelector("#username-signup");
+const pasword = document.querySelector('#password-signup');
 
 if(username && password) {
     const response = await fetch("/api/users", {
         method: "POST",
         body: JSON.stringify({
-            username,
-            password,
+            username:username.value,
+            password:password.value,
         }),
         headers:{"Content-Type": "application/json"}, 
     });
@@ -28,5 +28,4 @@ if(username && password) {
 }
 }
 
-document.querySelector("#signup-form");
-document.addEventListener("submit", signupFormHandler);
+document.querySelector("#signup-form").addEventListener("submit", signupFormHandler);
