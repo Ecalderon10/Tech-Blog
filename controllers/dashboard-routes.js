@@ -6,16 +6,18 @@ const withAuthorize = require('../utils/authentication');
 
 router.get('/', withAuthorize, async (req,res) => {
 try {
-const postinfo = await Post.findAll({where:{userId:req.session.userId},
+const postInfo = await Post.findAll({
 attributes:["id", "title", "content", "created_at"],
 include:[{
-model: Comment, attributes:["id","comment","postId","userId","created_at"],
+model: Comment, attributes:["id","comment","post_id","user_id","created_at"],
 include: {model:User, attributes:["username"]},
 },
 {model: User,attributes:["username"]}
 ],
 });
+res.render("dashboard", {posts:[]})
 } catch (err){
+console.log(err)
 res.status(500).json(err);
 }
 });
@@ -40,7 +42,7 @@ try {
         user_id: req.params.id,
         },
         attributes: ["id", "title", "content", "created_at"],
-        include: [{model: Comment,attributes: ["id","comment","postId","userId","created_at",],include: {model: User,attributes: ["username"]}},
+        include: [{model: Comment,attributes: ["id","comment","post_id","user_id","created_at",],include: {model: User,attributes: ["username"]}},
         {model: User,attributes: ["username"]},
         ],
     });

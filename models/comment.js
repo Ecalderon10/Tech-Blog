@@ -19,7 +19,7 @@ len:[3],
 }
 },
 
-userId:{
+user_id:{
 type: DataTypes.INTEGER,
 allowNull:false,
 references:{
@@ -28,7 +28,7 @@ references:{
 }
 },
 
-postId:{
+post_id:{
 type:DataTypes.INTEGER,
 allowNull: false,
 references:{

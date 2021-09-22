@@ -30,10 +30,10 @@ router.get("/:id", (req,res) => {
 
 router.post('/', withAuthorize, (req,res) => {
 if(req.session) {
-    Comment.creare({
-        comment: req.body.comment,
-        postId: req.body.postId,
-        userId:req.body.userId,
+    Comment.create({
+        comment_text: req.body.comment_text,
+        post_id: req.body.post_id,
+        userId:req.body.user_id,
     })
     .then((dbCommentData) => res.json(dbCommentData))
     .catch((err) => {
@@ -45,7 +45,7 @@ if(req.session) {
 
 
 router.put('/:id', withAuthorize, (req,res) => {
-    Comment.update({comment:req.body.comment},
+    Comment.update({comment_text:req.body.comment_text},
         {where: {
             id:req.params.id,
         }})
@@ -64,7 +64,7 @@ router.put('/:id', withAuthorize, (req,res) => {
 
 
 router.delete('/:id', withAuthorize,(req,res) => {
-    comment.destroy({ where:{id: req.params.id}})
+    Comment.destroy({ where:{id: req.params.id}})
     .then((dbCommentData) => {
     if(!dbCommentData) {
         res.status(404).json({message:"No comment found with this id"});

@@ -1,12 +1,16 @@
+
+console.log("Hello")
+
 async function signupFormHandler(event) {
+
 event.preventDefault();
 
 
 
 
 
-const username = documnet.querySelector("#username-signup");
-const pasword = document.querySelector('#password-signup');
+const username = document.querySelector("#username-signup");
+const password = document.querySelector('#password-signup');
 
 if(username && password) {
     const response = await fetch("/api/users", {

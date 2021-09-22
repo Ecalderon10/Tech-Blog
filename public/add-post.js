@@ -20,5 +20,4 @@ if (response.ok) {
 }
 
 
-document.querySelector('#new-post-form');
-document.addEventListener('submit', newFormHandler);
+document.querySelector('#new-post-form').addEventListener('submit', newFormHandler);

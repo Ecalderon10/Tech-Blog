@@ -41,7 +41,7 @@ res.status(500).json(err);
 });
 
 router.post('/',(req,res) => {
-    console.log(req.body)
+    console.log("create user route")
     User.create({
     username:req.body.username,
     password:req.body.password,
@@ -71,17 +71,19 @@ User.findOne({where:{username: req.body.username}
 .then((dbUserData) => {
     console.log(dbUserData)
     if(!dbUserData) {
+        console.log("Hello")
         res.status(400).json({message: "No user with that username"});
         return;
     }
-const validPassword = bcrypt.compare(req.body.password, dbUserData.password);
+const validPassword = req.body.password;
 
 if(!validPassword) {
+    console.log("goodbye")
     res.status(400).json({message:"Incorrect Password"});
     return;
 }
 req.session.save(() => {
-req.session.userId= dbUserData.id;
+req.session.user_id= dbUserData.user_id;
 req.session.username= dbUserData.username;
 req.session.loggedIn= true;
 console.log("loggedIn")
