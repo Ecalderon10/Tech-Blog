@@ -9,13 +9,20 @@ try {
 const postInfo = await Post.findAll({
 attributes:["id", "title", "content", "created_at"],
 include:[{
-model: Comment, attributes:["id","comment","post_id","user_id","created_at"],
+model: Comment, attributes:["id","comment_text","post_id","user_id","created_at"],
 include: {model:User, attributes:["username"]},
 },
 {model: User,attributes:["username"]}
 ],
 });
-res.render("dashboard", {posts:[]})
+
+const postData = postInfo.map(post => {
+    return  post.get({plain: true})
+    }
+)
+
+
+res.render("dashboard", {posts:postData})
 } catch (err){
 console.log(err)
 res.status(500).json(err);
@@ -32,17 +39,17 @@ router.get("/login", (req, res) => {
 
 
 router.get("/new", (req, res) => {
-    res.render("new-post");
+    res.render("single");
 });
 
 
 router.get("/edit/:id", withAuthorize, async (req, res) => {
 try {
     Post.findOne({where: {
-        user_id: req.params.id,
+        user_id: req.params.user_id,
         },
         attributes: ["id", "title", "content", "created_at"],
-        include: [{model: Comment,attributes: ["id","comment","post_id","user_id","created_at",],include: {model: User,attributes: ["username"]}},
+        include: [{model: Comment,attributes: ["id","comment_text","post_id","user_id","created_at",],include: {model: User,attributes: ["username"]}},
         {model: User,attributes: ["username"]},
         ],
     });

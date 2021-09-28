@@ -1,12 +1,15 @@
 
-{{>post-info ppost-info}}
+{{>post-info post-info}}
 
 
 {{#if loggedIn}}
 <div class="card">
     <h3 class="card-header"></h3>
-    <form class="card-body comment-form" id="comment-form"/>
+    <form class="card-body comment-form" id="new-post"/>
 
+
+
+        {{!-- create a form --}}
         <label class="form-label">Comment</label>
         <input id="comment" name="comment-body" class="form-input"/>
 
@@ -19,5 +22,5 @@
 {{>comments post.comments}}
 
 {{#if loggedIn}}
-<script src="/comment.js"></script>
+<script src="/add-post.js"></script>
 {{/if}}

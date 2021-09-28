@@ -8,7 +8,7 @@ window.location.toString().split('/').length-1];
 if (comment) {
 const response = await fetch('/api/comments', {
     method: "POST",
-    body: JSON.stringify({postId, comment}),
+    body: JSON.stringify({post_id, comment_text}),
     headers:{"Content-Type": "application/json"},
 });
 if (response.ok) {

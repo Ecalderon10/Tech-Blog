@@ -4,7 +4,7 @@ const {User, Post, Comment} = require('../models');
 
 router.get('/', async (req,res) => {
     try{
-    const postData = await Post.findAll({attributes:["id","title","content","created_at"], include:[{model:Comment, attributes:["id","comment","post_id","user_id","created_at"],
+    const postData = await Post.findAll({attributes:["id","title","content","created_at"], include:[{model:Comment, attributes:["id","comment_text","post_id","user_id","created_at"],
     include:{model:User, attributes:["username"]},
     },
     {
@@ -27,10 +27,6 @@ router.get('/', async (req,res) => {
 
 router.get('/login', async (req,res) => {
 // console.log(req.session.loggedIn)
-if(req.session.loggedIn){
-res.redirect('/');
-return;
-}
 res.render('login');
 });
 
@@ -43,7 +39,7 @@ router.get('/signup', (req,res) => {
 router.get("/post/:id", async (req,res) => {
 const post_idData =await Post.findOne({where: {id:req.params.id},
 attributes: ["id", "content", "title","created_at"],
-include:[{model: Comment, attributes:["id", "comment", "post_id", "user_id","create"],
+include:[{model: Comment, attributes:["id", "comment_text", "post_id", "user_id","create"],
 include: {
     model:User,
     attributes:["username"],
@@ -66,13 +62,13 @@ res.render("post", { post, loggedIn: req.session.loggedIn});
 
 //comments
 
-router.get('/post-comments',async (req,res) => {
+router.get('/post-comment',async (req,res) => {
     const commentsData = await Post.findOne({
     where: {
         id:req.params.id,
     },
     attributes: ["id", "content", "title", "created_at"],
-    include:[{model: Comment, attributes:["id","comment","post_id", "user_id", "created_at"],
+    include:[{model: Comment, attributes:["id","comment_text","post_id", "user_id", "created_at"],
 model:User,
 attributes:["username"],
 },

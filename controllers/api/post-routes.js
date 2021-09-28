@@ -11,7 +11,7 @@ const dbPostData = await Post.findAll({
     order: [["created_at","DESC"]],
     include:[{model:User, attributes:["username"]}, {
     model: Comment,
-    attributes:["id", "comment","post_id","userId", "created_at"],
+    attributes:["id", "comment_text","post_id","user_id", "created_at"],
     include:{
         model:User,
         attributes:["username"],
@@ -19,10 +19,7 @@ const dbPostData = await Post.findAll({
     },
     ]
 });
-    res.render("dashboard".catch((err) => {
-        console.log(err);
-        res.status(500).json(err);
-    }));
+    res.json(dbPostData);
 });
 
 
@@ -32,7 +29,7 @@ include:[{model:User, attributes:["username"]
 },
 {
     model:Comment,
-    attributes:["id", "comment", "post_id","user_id","created_at"],
+    attributes:["id", "comment_text", "post_id","user_id","created_at"],
     include:{ model:User, attributes:["username"],
 },
 },
@@ -51,10 +48,11 @@ res.json(dbPostData);
 });
 
 router.post('/', withAuthorize, (req,res) => {
+    console.log(req.body);
     Post.create({
         title: req.body.title,
         content: req.body.content,
-        user_id: req.session.userId,
+        user_id: req.session.user_id,
     })
     .then((dbPostData) => res.json(dbPostData))
     .catch((err) => {

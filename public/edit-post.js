@@ -28,4 +28,4 @@ async function editFormHAndler(event) {
     }
 }
 
-document.querySelector(".edit-post-form").addEventListener("submit", editFormHAndler)
+document.querySelector(".edit-post").addEventListener("submit", editFormHAndler)

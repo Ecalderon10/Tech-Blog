@@ -6,11 +6,11 @@ const userData = [
     password: "password",
   },
   {
-    username: "Berkely",
+    username: "Berkeley",
     password: "Ilovebones",
   },
   {
-    username: "Winstion",
+    username: "Winston",
     password: "Ilovemykong",
   },
 ];

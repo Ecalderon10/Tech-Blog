@@ -6,13 +6,13 @@ class Comment extends Model {}
 
 
 Comment.init({
-    id:{
+id:{
 type: DataTypes.INTEGER,
 primaryKey:true,
 autoIncrement:true,
 },
 
-comment:{
+comment_text:{
 type:DataTypes.STRING,
 validate:{
 len:[3],

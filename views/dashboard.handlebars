@@ -1,15 +1,18 @@
+ <input id="comment" name="post-title" class="form-input">Title</>
+ <input id="comment" name="content" class="form-input"/>
+ <button id ="new-post" class="btn"><a class="link">New Post</a></button>
 
 {{#if posts.length}}
 
 <section>
     <h2>Your Posts</h2>
     {{#each posts as |post|}}
-        {{>dashb-postinfo post}}
+        {{>dash-postinfo post}}
     {{/each}}
 </section>
 
 {{/if}}
 
-<button type= "submit" class="btn"><a class="link" href="/dashboard/new">Add New Post</a></button>
 
-<script src ="/post.js"></script>
+
+<script src ="/add-post.js"></script>
