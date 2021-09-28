@@ -7,7 +7,7 @@ try {
 
     req.session.save(() => {
     req.session.user_id = userData.id;
-    req.session.logged_in = true;
+    req.session.loggedIn = true;
 
     res.status(200).json(userData);
     });
@@ -39,12 +39,11 @@ router.post('/login', async (req, res) => {
 
     req.session.save(() => {
       req.session.user_id = userData.id;
-      req.session.logged_in = true;
+      req.session.loggedIn = true;
       
       res.json({ user: userData, message: 'You are now logged in!' });
     });
-    res.redirect('/dashboard')
-
+      console.log(req.session)
   } catch (err) {
     console.log(err)
     res.status(400).json(err);

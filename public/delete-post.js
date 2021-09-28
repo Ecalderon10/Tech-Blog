@@ -1,13 +1,11 @@
 async function deleteFormHandler(event) {
-    event.preventDefault();
-    const id = window.location.toString().split('/')[
-    window.location.toString().split('/').length-1];
+     alert('click')
+    const id = this.getAttribute('data-id')
 
+    console.log('id',id)
     const response = await fetch(`/api/posts/${id}`,{
         method:"DELETE",
-        body:JSON.stringify({
-            post_id: id,
-        }),
+         
         headers: {
             "Content-Type": "application/json",
         },
@@ -20,6 +18,10 @@ async function deleteFormHandler(event) {
     alert(response.statusText);
     }
 }
-
-
-document.querySelector(".delete-post-btn").addEventListener("click", deleteFormHandler)
+const deleteBtnEl = document.querySelectorAll(".delete-post-btn")
+console.log(deleteBtnEl)
+for (let i = 0; i < deleteBtnEl.length; i++) {
+     console.log(deleteBtnEl[i])
+    deleteBtnEl[i].addEventListener("click", deleteFormHandler)
+    
+}

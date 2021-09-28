@@ -1,14 +1,12 @@
 async function editFormHAndler(event) {
-    event.preventDefault();
+
 
     const title = document.querySelector('input[name="post-title"]').value.trim();
     const content = document.querySelector('input[name="content"]').value.trim();
     console.log(title);
     console.log(content);
 
-    const id = window.location.toString().split('/')[
-        window.location.toString().split('/').length-1];
-
+    const id = this.getAttribute('data-id')
     const response = await fetch(`/api/posts/${id}`, {
     method: "PUT",
     body: JSON.stringify({
@@ -27,5 +25,9 @@ async function editFormHAndler(event) {
         alert(response.statusText);
     }
 }
-
-document.querySelector(".edit-post").addEventListener("submit", editFormHAndler)
+const editBtnEl = document.querySelectorAll(".edit-post")
+for (let i = 0; i < editBtnEl.length; i++) {
+     console.log(editBtnEl[i])
+    editBtnEl[i].addEventListener("click", editFormHandler)
+    
+}
