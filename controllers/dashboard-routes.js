@@ -20,9 +20,10 @@ const postData = postInfo.map(post => {
     return  post.get({plain: true})
     }
 )
-
+console.log({postData})
 
 res.render("dashboard", {posts:postData})
+
 } catch (err){
 console.log(err)
 res.status(500).json(err);
@@ -46,7 +47,7 @@ router.get("/new", (req, res) => {
 router.get("/edit/:id", withAuthorize, async (req, res) => {
 try {
     Post.findOne({where: {
-        user_id: req.params.user_id,
+        user_id: req.params.id,
         },
         attributes: ["id", "title", "content", "created_at"],
         include: [{model: Comment,attributes: ["id","comment_text","post_id","user_id","created_at",],include: {model: User,attributes: ["username"]}},
