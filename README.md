@@ -1,6 +1,6 @@
 # Tech-Blog
 
-<img width="1351" alt="Screen Shot 2021-09-19 at 2 22 32 PM" src="https://user-images.githubusercontent.com/87398458/133941910-07900fdc-5d02-463c-b0e8-6b2eafaeb6a9.png">
+<img width="918" alt="Screen Shot 2021-10-04 at 8 12 59 PM" src="https://user-images.githubusercontent.com/87398458/135949505-6ea6ff66-5bd0-4a05-a5e0-48a2d6c1ec55.png">
 
 
 ## Description
