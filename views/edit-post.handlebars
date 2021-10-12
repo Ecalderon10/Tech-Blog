@@ -1,6 +1,6 @@
 <div class="card">
   <h3 class="card-header">Edit Post</h3>
-  <form class="card-body edit-post-form">
+  
     <label for="post-title" class="form-label">Title</label>
     <input
       name="post-title"
@@ -15,8 +15,7 @@
       value="{{post.content}}"
       class="form-input"
     />
-    <button type="submit" data-id={{post.id}} class="btn update-btn" href="/dashboard">Update Post</button>
-  </form>
+    <button data-id={{post.id}} class="btn update-btn" >Update Post</button>
 </div>
 
-<script src="edit-post.js"></script>
+<script src="/edit-post.js"></script>

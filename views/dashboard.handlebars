@@ -6,7 +6,7 @@
                     {{#if loggedIn}}
                     <a class="link" href="/" id="logout">Logout</a>
                     {{else}}
-                    <a class="link" href="/logout">Logout</a>
+                    <a class="link" href="/login">Logout</a>
                     {{/if}}
                 </nav>          
         </div>
@@ -31,8 +31,12 @@
 
 {{/if}}
 
+ {{#if loggedIn}}
+    <script src="/logout.js"></script>
+    {{/if}}
 
 
+ 
 <script src ="/add-post.js"></script>
 <script src ="/delete-post.js"></script>
 <script src ="/edit-post.js"></script>

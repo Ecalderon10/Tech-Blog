@@ -63,7 +63,7 @@ router.post("/", withAuthorize, (req, res) => {
 });
 
 router.put("/:id", withAuthorize, (req, res) => {
-  // console.log(req);
+  console.log(req.body);
   Post.update(
     {
       title: req.body.title,

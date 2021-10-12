@@ -31,6 +31,6 @@ async function editFormHandler(event) {
     alert(response.statusText);
   }
 }
-const editBtnEl = document.querySelector(".edit-post-form");
+const editBtnEl = document.querySelector(".update-btn");
 
-editBtnEl.addEventListener("submit", editFormHandler);
+editBtnEl.addEventListener("click", editFormHandler);
