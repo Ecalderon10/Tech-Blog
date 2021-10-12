@@ -1,7 +1,18 @@
+  <header class="hero">
+          <div>
+            <nav class"nav">
+                    <a class="link" href="/">Home</a>
+                    <a class="link" href="/dashboard">News Feed</a>
+                    {{#if loggedIn}}
+                    <a class="link" href="/" id="logout">Logout</a>
+                    
+                </nav>          
+          </div>
+          <h1 class="app-title"><i class="fab "></i>The Tech Blog</h1>
+      </header>
 
 {{>post-info post}}
 
-{{#if loggedIn}}
 
 <div class = "card">
     <h3 class = "card-header"></h3>
@@ -11,10 +22,11 @@
         <button type="submit" class="btn">Submit</button>
     </form>
 </div>
-{{/if}}
 
 {{>comments post.comments}}
 
-{{#if loggedIn}}
 <script src="/comment.js"></script>
-{{/if}}  
+
+ {{else}}
+<a class="link" href="/login">Login</a>
+{{/if}}

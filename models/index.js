@@ -2,39 +2,33 @@ const User = require ('./user');
 const Post = require('./post');
 const Comment = require('./comment');
 
-//Associations 
-
-//User Associations
-//redunt with line 27
-// User.hasMany(Post,{
-//     foriegnKey:"user_id",
-// });
-
-//redudent to line 22
-// User.hasMany(Comment,{
-//     foriegnKey:"user_id",
-//     onDelete:"Cascade"
-// });
-
-
-//Post Associations
-
-Post.belongsTo(User,{
-foriegnKey:"user_id",
-onDelete:"Cascade",
-});
-
-Post.hasMany(Comment,{
-    foriegnKey:"post_id",
-    onDelete:"Cascade"
-});
-
-// Comment Associations
-
-Comment.belongsTo(User,{
-    foriegnKey:"user_id",
-    onDelete:"CASCADE",
-});
+User.hasMany(Post, {
+    foreignKey: "user_id",
+  });
+  Post.belongsTo(User, {
+    foreignKey: "user_id",
+    onDelete: "cascade",
+  });
+  
+  Comment.belongsTo(User, {
+    foreignKey: "user_id",
+    onDelete: "cascade",
+  });
+  
+  Comment.belongsTo(Post, {
+    foreignKey: "post_id",
+    onDelete: "cascade",
+  });
+  
+  User.hasMany(Comment, {
+    foreignKey: "user_id",
+    onDelete: "cascade",
+  });
+  
+  Post.hasMany(Comment, {
+    foreignKey: "post_id",
+    onDelete: "cascade",
+  });
 
 
 

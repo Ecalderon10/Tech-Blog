@@ -1,11 +1,29 @@
- <input id="comment" name="post-title" class="form-input">Title</>
- <input id="comment" name="content" class="form-input"/>
- <button id ="new-post" class="btn"><a class="link">New Post</a></button>
+  <header class="hero">
+          <div>
+            <nav class"nav">
+                    <a class="link" href="/">Home</a>
+                    <a class="link" href="/dashboard">News Feed</a>
+                    {{#if loggedIn}}
+                    <a class="link" href="/" id="logout">Logout</a>
+                    {{else}}
+                    <a class="link" href="/logout">Logout</a>
+                    {{/if}}
+                </nav>          
+        </div>
+
+        <h1 class="app-title"><i class="fab "></i>The Tech Blog</h1>
+    </header>
+<h2>Create a Post</h2>
+
+<section id= "Post">
+ <input id="comment" name="post-title" class="form-input" placeholder="Title"></input>
+ <input id="comment" name="content" class="form-input" placeholder="Whats on your mind?"></input>
+ <button id ="new-post" class="btn"><a class="link" href="/dashboard/New">New Post</a></button>
+</section>
 
 {{#if posts.length}}
-
 <section>
-    <h2>Your Posts</h2>
+    <h2>Latest Posts</h2>
     {{#each posts as |post|}}
         {{>dash-postinfo post}}
     {{/each}}

@@ -1,10 +1,11 @@
-
-
 <div class="card">
-    <div class="card-header">
-        <h4><a class="link" href="/dashboard/edit/{{id}}">{{title}}</a></h4>
+  <div class="card-header">
+    <h4>{{title}}</h4>
+    <p>{{content}}</p>
 
-    <a href="/dashboard/edit/{{id}}" ><button class="edit-post" data-id={{id}} >edit</button></a>    
-        <button class="delete-post-btn" data-id={{id}} >delete</button>
-    </div>
+    <a href="/dashboard/edit/{{id}}"><button
+        class="edit-post-form"
+      >edit</button></a>
+    <button class="delete-post-btn" data-id={{id}}>delete</button>
+  </div>
 </div>
